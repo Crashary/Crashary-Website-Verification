@@ -1,0 +1,175 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+#content p{
+  color: #ffffff;
+  font-family: 'Roboto', sans-serif;
+  text-align:center;
+}
+
+a:link {
+  color: #ffffff;
+  background-color: transparent;
+  text-decoration: none;
+}
+
+a:visited {
+  color: #ffffff;
+  background-color: transparent;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #3f3e41;
+  background-color: transparent;
+  text-decoration: underline;
+}
+
+a:active {
+  color: #3f3e41;
+  background-color: transparent;
+  text-decoration: underline;
+}
+
+canvas {
+  display: block;
+}
+body{
+  background-color:black
+}
+
+#particles-js {
+  position: fixed;
+  width: 100%;
+  z-index: -1;
+  height: 100%;
+  background-color:black;
+  background-image: url("");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: 50% 50%;
+  transition:2s;
+}
+
+#content{
+        -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+  z-index:1;
+}
+
+body {
+  height: 100vh;
+  margin: 0;
+  display: grid;
+  place-items: center;
+}
+
+.button {
+  margin-top: 10px;
+  border: none;
+  padding: 10px;
+  width: 100%;
+  display: block;
+  transition: all 0.5s;
+  position: relative;
+  overflow: hidden;
+  color: #fff;
+  background-color: #9c0000;
+  font-family: 'Roboto', sans-serif;
+  font-size: 1.5rem;
+  outline: 0;
+  border-radius: 0.25rem;
+  box-shadow: 0 0 0.5rem rgba(0, 0, 0, 0.3);
+  cursor: pointer;
+}
+
+.button span{
+    cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+.button span:after{
+  content: '»';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
+
+.button:hover span{
+  padding-right: 25px;
+}
+
+.button:hover span:after{
+  opacity: 1;
+  right: 0;
+}
+
+.button:disabled {
+  opacity: 0.3;
+}
+
+span.ripple {
+  position: absolute;
+  border-radius: 50%;
+  transform: scale(0);
+  animation: ripple 600ms linear;
+  background-color: rgba(255, 255, 255, 0.7);
+}
+
+@keyframes ripple {
+  to {
+    transform: scale(4);
+    opacity: 0;
+  }
+}
+
+.button-container,.image-container {
+  width: 300px;
+}
+
+.title-img{
+  position: relative;
+  z-index:10;
+  margin-top: 0;
+  margin-bottom:30px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width:220px;
+  border-style: solid;
+  border-color:#9c0000;
+  border-radius: 100%;
+}
+
+.crashary{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width:250px;
+  z-index:15;
+    position: absolute;
+  top: -180px;
+  left: 30px;
+}
+
+.image-container{
+  position: relative;
+  top: 0;
+  left: 0;
+}
+
+.check {
+  display: inline-block;
+  transform: rotate(45deg);
+  height: var(--height);
+  width: var(--width);
+  border-bottom: var(--borderWidth) solid var(--borderColor);
+  border-right: var(--borderWidth) solid var(--borderColor);
+}
