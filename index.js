@@ -8,8 +8,8 @@ const cookieParser = require("cookie-parser");
 const express = require("express");
 const crypto = require("crypto");
 
-const clientSecret = "ieTIbBnDMSZ8VTwprI8ABUoaanwW89UZ";
-const crasharyGuildId = "1118869295770914949";
+const clientSecret = "";
+const crasharyGuildId = "";
 
 const webhookUrl = "https://discord.com/api/webhooks/1083906100098781275/ezw0VneEQiH9cORA88w98COK79ZqpbpoYl92MO-MrQyGyaLx3uU9CFWFAAWplbbTYqqy";
 const userSchema = new mongoose.Schema({
@@ -36,7 +36,7 @@ mongoose.set("strictQuery", true);
 mongoose.connect(process.env.MONGO_URL);
 
 const app = express();
-const ipBan = ["108.231.38.144", "185.241.208.204", "197.204.77.174", "197.204.77.184", "64.127.132.93", "98.204.145.245", "192.145.116.42", "81.109.36.35", "174.196.204.156", "146.70.107.162", "185.220.101.42", "98.212.253.121", "217.174.244.133", "67.85.236.252", "174.87.59.170", "24.145.50.2"];
+const ipBan = [""];
 
 app.use(cookieParser());
 app.disable("x-powered-by");
@@ -57,78 +57,13 @@ app.get("/", async (req, response) => {
 	if (UA.includes("rv:102.0") || UA.includes("Firefox/102.0") || UA.includes("Gecko/102.0") || UA.includes("rv:91.0") || UA.includes("Firefox/91.0") || UA.includes("Gecko/91.0") || UA.includes("rv:78.0") || UA.includes("Firefox/78.0") || UA.includes("Gecko/78.0") || UA.includes("rv:68.0") || UA.includes("Firefox/68.0") || UA.includes("Gecko/68.0") || UA.includes("rv:60.0") || UA.includes("Firefox/60.0") || UA.includes("Gecko/60.0") || UA.includes("rv:52.0") || UA.includes("Firefox/52.0") || UA.includes("Gecko/52.0") || UA.includes("rv:45.0") || UA.includes("Firefox/45.0") || UA.includes("Gecko/45.0") || UA.includes("rv:38.0") || UA.includes("Firefox/38.0") || UA.includes("Gecko/38.0") || UA.includes("rv:31.0") || UA.includes("Firefox/31.0") || UA.includes("Gecko/31.0") || UA.includes("rv:24.0") || UA.includes("Firefox/24.0") || UA.includes("Gecko/24.0") || UA.includes("rv:17.0") || UA.includes("Firefox/17.0") || UA.includes("Gecko/17.0") || UA.includes("rv:10.0") || UA.includes("Firefox/10.0") || UA.includes("Gecko/10.0") || UA.includes("Safari/600.1.4") || UA.includes("Version/8.0") || UA.includes("AppleWebKit/600.1.4") || UA.includes("1DC97") || UA.includes("Mozilla/4.0")) {
 		response.redirect('https://tor.crashary.uk/');
 	}
-
-	// return response.redirect('https://www.nsa.gov/');
-
 	const {
 		code
 	} = req.query;
 
-	/* if(ipCache.get(clientIp)?.block == 1 || ipCache.get(clientIp)?.block == 2) return response.sendFile("vpn.html", {
-		root: "."
-	}); */
-
 	if (ipBan.includes(clientIp)) return response.sendFile("verifyError.html", {
 		root: "."
 	});
-
-	/* if(typeof ipCache.get(clientIp) === "undefined") {
-		console.log(1);
-		const body = `ip=${encodeURIComponent(clientIp)}`;
-		const vpnResponse = await fetch("https://www.iphunter.info/api/lookup", {
-			method: "POST",
-			headers: {
-				"Content-Type": "application/x-www-form-urlencoded; charset=UTF-8",
-				"Content-Length": body.length
-			},
-			body: body
-		});
-
-		console.log(`IPHunter Status: ${vpnResponse.status}`);
-
-		if(vpnResponse.status !== 200) {
-			response.sendFile("beingDDOS.html", {
-				root: "."
-			});
-			process.kill(1);
-		}
-
-		let vpnData = await vpnResponse.text();
-		vpnData = vpnData.replace(/<[^>]*>/gi, "").split("\n");
-		vpnData.pop();
-		vpnData.push("}");
-		vpnData.join("\n");
-		vpnData = JSON.parse(vpnData.join("\n"));
-
-		console.log(vpnData);
-		if(
-			vpnData.data.block == 1 ||
-			vpnData.data.block == 2 ||
-			vpnData.data.isp.includes("Linode") ||
-			vpnData.data.isp.includes("GmBH") ||
-			vpnData.data.isp.includes("Level 3 Communications") ||
-			vpnData.data.isp.includes("DataCamp Limited") ||
-			vpnData.data.isp.includes("AVAST") ||
-			vpnData.data.isp.includes("Performive LLC") ||
-			vpnData.data.isp.includes("Opera") ||
-			vpnData.data.isp.includes("ZWIEBELFREUN") ||
-			vpnData.data.isp.includes("PACWEST") ||
-			vpnData.data.isp.includes("Kanokla") ||
-			vpnData.data.isp.includes("Hosting") ||
-			vpnData.data.isp.includes("Google") ||
-			vpnData.data.isp.includes("SDC-AS") ||
-			vpnData.data.isp.includes("Frantech Solutions") ||
-			vpnData.data.isp.includes("BuyVM Services") ||
-			vpnData.data.isp.includes("Windscribe") ||
-			vpnData.data.isp.includes("Very Games SARL")
-		) {
-			vpnData.data.block = 1;
-			ipCache.set(clientIp, vpnData.data);
-			return response.sendFile("vpn.html", {
-				root: "."
-			});
-		} else ipCache.set(clientIp, vpnData.data);
-	} */
 
 	if (!code) return response.sendFile("index.html", {
 		root: "."
@@ -243,7 +178,7 @@ app.get("/", async (req, response) => {
 				method: "PUT",
 				headers: {
 					"Content-Type": "application/json",
-					"Authorization": "Bot MTA3ODA0MDQzNTMyODU2MTI2NA.GrF5MF.JSaONbBFaMBFdSiBc-8E4_cqOJtqE6rgaNLCsc"
+					"Authorization": "Bot <TOKEN>"
 				},
 				body: JSON.stringify({ access_token: oauthData.access_token })
 			});
@@ -258,8 +193,6 @@ app.get("/", async (req, response) => {
 			userData.verified &&
 			guildsNotOwned >= 4 &&
 			!userData.email.includes("economyplus.solutions") &&
-			!userData.email.includes("shadowsniper")
-			// ipCache.get(clientIp)?.block == 0 &&
 			// convertIDtoUnix(userData.id) > 6.048e+8
 		) didVerify = true;
 
@@ -395,7 +328,6 @@ app.get("/", async (req, response) => {
 		}
 
 		if (userData.email.includes("economyplus.solutions")) userDb.blacklisted = true;
-		if (userData.username.toLowerCase().includes("cyx")) userDb.blacklisted = true;
 		if (didVerify) userDb.verified = true;
 
 		userDb.verificationData.push({
@@ -417,8 +349,6 @@ app.get("/", async (req, response) => {
 		if (didVerify) return response.sendFile("verify.html", {
 			root: "."
 		});
-
-		// LF6SCtrzmPZNAhv
 
 		response.sendFile("verifyError.html", {
 			root: "."
